@@ -13,13 +13,16 @@ public class ApiApplication {
 		SpringApplication.run(ApiApplication.class, args);
 	}
 
-	@Bean
-	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
-		return builder.routes()
-				.route(predicate ->
-						predicate.path("/get")
-						.filters( f -> f.addRequestHeader("Gabriel", "Felix"))
-						.uri("http://httpbin.org:80"))
-				.build();
-	}
+	// De forma Programatica usando um RouteLocator
+	// Foi substituido a mesma rota no application.yml permitindo uma alteração da rota sem necessidade de deployar toda a aplicação
+
+//	@Bean
+//	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
+//		return builder.routes()
+//				.route(predicate ->
+//						predicate.path("/get")
+//						.filters( f -> f.addRequestHeader("Gabriel", "Felix"))
+//						.uri("http://httpbin.org:80"))
+//				.build();
+//	}
 }

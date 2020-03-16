@@ -1,0 +1,18 @@
+info:
+  artifactId: '${project.name}'
+  version: '${project.version}'
+
+server:
+  port: 9094
+
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: first-route
+          uri: http://httpbin.org:80
+          predicates:
+            - Path=/get
+          filters:
+            - AddRequestHeader=Gabriel,Felix
