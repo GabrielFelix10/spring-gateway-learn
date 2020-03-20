@@ -3,7 +3,7 @@ info:
   version: '${project.version}'
 
 server:
-  port: 9094
+  port: 9093
 
 ---
 spring:
@@ -11,8 +11,9 @@ spring:
     gateway:
       routes:
         - id: first-route
-          uri: http://httpbin.org:80
+          uri: http://localhost:9094/
           predicates:
-            - Path=/get
+            - Path=/cash-back/2
           filters:
             - AddRequestHeader=Gabriel,Felix
+            - AddRequestParameter=red, blue
